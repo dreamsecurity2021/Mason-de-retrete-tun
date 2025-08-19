@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title><%= title ? (title + ' - ' + appName) : appName %></title>
+    <link rel="stylesheet" href="/public/styles.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container nav">
+        <div class="brand">
+          <span class="logo">ض</span>
+          <span><%= appName %></span>
+        </div>
+        <nav>
+          <a href="/" class="<%= currentPath === '/' ? 'active' : '' %>">الرئيسية</a>
+          <a href="/apartments" class="<%= currentPath.startsWith('/apartments') ? 'active' : '' %>">الشقق</a>
+          <a href="/admin/apartments" class="<%= currentPath.startsWith('/admin') ? 'active' : '' %>">لوحة التحكم</a>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <div class="container">
+        <%- body %>
+      </div>
+    </main>
+    <footer>
+      <div class="container">© <%= new Date().getFullYear() %> <%= appName %>. جميع الحقوق محفوظة.</div>
+    </footer>
+  </body>
+  </html>
+

@@ -1,0 +1,69 @@
+<div class="row">
+  <div class="stack">
+    <img src="<%= apartment.images[0] || '/public/img/placeholder.svg' %>" alt="<%= apartment.name %>" style="width:100%; border-radius:12px; border:1px solid #e5e7eb;" />
+    <div class="stack">
+      <h1><%= apartment.name %></h1>
+      <div class="badge"><%= apartment.location %></div>
+      <div>غرف النوم: <strong><%= apartment.bedrooms %></strong></div>
+      <div>المرافق: <%= apartment.amenities.join('، ') %></div>
+      <div class="price"><%= apartment.pricePerNight %> ريال / الليلة</div>
+      <p><%= apartment.description %></p>
+    </div>
+    <div>
+      <h3>الحجوزات الحالية</h3>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>من</th>
+            <th>إلى</th>
+            <th>الاسم</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% if (bookings.length === 0) { %>
+            <tr><td colspan="3">لا توجد حجوزات حالياً</td></tr>
+          <% } else { %>
+            <% bookings.forEach(b => { %>
+              <tr>
+                <td><%= new Date(b.checkIn).toLocaleDateString('ar-SA') %></td>
+                <td><%= new Date(b.checkOut).toLocaleDateString('ar-SA') %></td>
+                <td><%= b.fullName %></td>
+              </tr>
+            <% }) %>
+          <% } %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div>
+    <div class="card">
+      <h2>نموذج الحجز</h2>
+      <form class="stack" action="/apartments/<%= apartment.id %>/book" method="post">
+        <div class="field">
+          <label>الاسم الكامل</label>
+          <input name="fullName" required />
+        </div>
+        <div class="field">
+          <label>رقم الجوال</label>
+          <input name="phone" required />
+        </div>
+        <div class="field">
+          <label>البريد الإلكتروني (اختياري)</label>
+          <input type="email" name="email" />
+        </div>
+        <div class="row">
+          <div class="field">
+            <label>تاريخ الوصول</label>
+            <input type="date" name="checkIn" required />
+          </div>
+          <div class="field">
+            <label>تاريخ المغادرة</label>
+            <input type="date" name="checkOut" required />
+          </div>
+        </div>
+        <button class="btn" type="submit">تأكيد الحجز</button>
+      </form>
+    </div>
+  </div>
+</div>
+
