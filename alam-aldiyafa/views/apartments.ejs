@@ -1,0 +1,17 @@
+<h1>الشقق المتاحة</h1>
+
+<div class="grid">
+  <% apartments.forEach(apartment => { %>
+    <div class="apartment-card">
+      <img src="<%= apartment.images[0] || '/public/img/placeholder.svg' %>" alt="<%= apartment.name %>" />
+      <div class="content">
+        <div class="badge"><%= apartment.location %></div>
+        <strong><%= apartment.name %></strong>
+        <div><%= apartment.bedrooms %> غرف | مرافق: <%= apartment.amenities.join('، ') %></div>
+        <div class="price"><%= apartment.pricePerNight %> ريال / الليلة</div>
+        <a class="btn" href="/apartments/<%= apartment.id %>">التفاصيل والحجز</a>
+      </div>
+    </div>
+  <% }) %>
+</div>
+
