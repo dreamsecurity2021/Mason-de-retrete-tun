@@ -1,0 +1,42 @@
+<section class="hero">
+  <div class="stack">
+    <h1 class="title">احجز شقتك المفروشة بسهولة</h1>
+    <p class="subtitle">عروض مميزة ومواقع فريدة مع خدمة عملاء على مدار الساعة.</p>
+    <div>
+      <a href="/apartments" class="btn">تصفح الشقق</a>
+    </div>
+  </div>
+  <div class="card">
+    <form class="stack" action="/apartments" method="get">
+      <div class="row">
+        <div class="field">
+          <label>تاريخ الوصول</label>
+          <input type="date" name="checkIn" />
+        </div>
+        <div class="field">
+          <label>تاريخ المغادرة</label>
+          <input type="date" name="checkOut" />
+        </div>
+      </div>
+      <div>
+        <button class="btn" type="submit">البحث</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<h2>الشقق المقترحة</h2>
+<div class="grid">
+  <% apartments.slice(0,3).forEach(apartment => { %>
+    <div class="apartment-card">
+      <img src="<%= apartment.images[0] || '/public/img/placeholder.svg' %>" alt="<%= apartment.name %>" />
+      <div class="content">
+        <div class="badge"><%= apartment.location %></div>
+        <strong><%= apartment.name %></strong>
+        <div class="price"><%= apartment.pricePerNight %> ريال / الليلة</div>
+        <a class="btn" href="/apartments/<%= apartment.id %>">التفاصيل والحجز</a>
+      </div>
+    </div>
+  <% }) %>
+</div>
+

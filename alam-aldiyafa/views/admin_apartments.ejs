@@ -1,0 +1,31 @@
+<div class="stack">
+  <div style="display:flex; justify-content: space-between; align-items:center;">
+    <h1>لوحة التحكم - الشقق</h1>
+    <a class="btn" href="/admin/apartments/new">إضافة شقة</a>
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>الاسم</th>
+        <th>الموقع</th>
+        <th>السعر</th>
+        <th>غرف</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% apartments.forEach(a => { %>
+        <tr>
+          <td><%= a.id %></td>
+          <td><%= a.name %></td>
+          <td><%= a.location %></td>
+          <td><%= a.pricePerNight %> ريال</td>
+          <td><%= a.bedrooms %></td>
+          <td><a class="btn ghost" href="/apartments/<%= a.id %>">عرض</a></td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</div>
+

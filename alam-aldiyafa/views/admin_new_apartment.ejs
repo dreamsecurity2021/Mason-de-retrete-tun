@@ -1,0 +1,39 @@
+<div class="card" style="max-width:800px; margin:0 auto;">
+  <h1>إضافة شقة جديدة</h1>
+  <form class="stack" action="/admin/apartments" method="post">
+    <div class="row">
+      <div class="field">
+        <label>الاسم</label>
+        <input name="name" required />
+      </div>
+      <div class="field">
+        <label>الموقع</label>
+        <input name="location" required />
+      </div>
+    </div>
+    <div class="field">
+      <label>الوصف</label>
+      <textarea name="description" rows="4"></textarea>
+    </div>
+    <div class="row">
+      <div class="field">
+        <label>غرف النوم</label>
+        <input name="bedrooms" type="number" min="1" value="1" />
+      </div>
+      <div class="field">
+        <label>السعر لليلة (ريال)</label>
+        <input name="pricePerNight" type="number" min="0" required />
+      </div>
+    </div>
+    <div class="field">
+      <label>المرافق (افصل بينها بفاصلة)</label>
+      <input name="amenities" placeholder="واي فاي, موقف سيارات, مسبح" />
+    </div>
+    <div class="field">
+      <label>روابط الصور (افصل بينها بفاصلة)</label>
+      <input name="images" placeholder="/public/img/apt1.jpg, https://..." />
+    </div>
+    <button class="btn" type="submit">حفظ</button>
+  </form>
+</div>
+
