@@ -59,3 +59,7 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 1. إنشاء نسخة إنتاجية وبناء حزمة التثبيت:
    - `npm run electron:dist`
 2. ستجد ملفات التثبيت داخل المجلد `dist/`.
+
+### رابط التنزيل
+
+لا يوجد رابط تنزيل مستضاف حتى الآن. بعد تشغيل أمر البناء `npm run electron:dist` يمكنك مشاركة الملفات التي يتم توليدها داخل المجلد `dist/` كروابط تنزيل (مثلاً عبر Google Drive أو GitHub Releases أو خادم داخلي). 
