@@ -44,3 +44,18 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+## تشغيل التطبيق كبرنامج سطح مكتب
+
+### تشغيل نسخة التطوير
+
+1. تثبيت الاعتمادات:
+   - `npm install`
+2. تشغيل تطبيق سطح المكتب مع خادم التطوير:
+   - `npm run electron:dev`
+
+### بناء نسخة قابلة للتنزيل
+
+1. إنشاء نسخة إنتاجية وبناء حزمة التثبيت:
+   - `npm run electron:dist`
+2. ستجد ملفات التثبيت داخل المجلد `dist/`.
